@@ -2,108 +2,78 @@
 #include<stdlib.h>
 #include<conio.h>
 
-struct node
+struct STACK
 {
- int data;
- struct node* next;
+  int data;
+  struct STACK* next;
 };
 
-struct node* createnode()
+int createnode()
 {
-	 int a;
-	 struct node* newnode=NULL;
-	 newnode=(struct node*)malloc(sizeof(struct node));
-
+	int a;
+	struct STACK* newnode=NULL;
+	newnode=(struct STACK*)malloc(sizeof(struct STACK));
 	if(newnode == NULL)
 	{
-	   printf("memory not allocated");
+	  printf("memory is not allocated\n");
 	}
 	else
 	{
-	   printf("enter the a\n");
-	   scanf_s("%d",&a);
+	  printf("enter the data a\n");
+	  scanf("%d",&a);
 
-	   newnode->data=a;
-	   newnode->next=NULL;
+	  newnode->data=a;
+	  newnode->next = NULL;
+	  return  ;
 	}
-	return newnode;
+
 }
 
-void createLinkedList(struct node** head)
+void push(struct STACK** top,int elements)
 {
- struct node* tempnode=NULL;
- struct node* travnode=*head;
- tempnode=createnode();
- if(* head == NULL)
- {
-  * head = tempnode; 
- }
- else
- {
-   while(travnode->next != NULL)
-   {
-     travnode=travnode->next;
-   }
-   travnode->next=tempnode;
- }
+  struct STACK* tempnode=createnode();
+
+  if()
+
+
+
 }
 
-void displayLinkedList(struct node* head)
+void pop()
 {
-  if(head == NULL)
-  {
-    printf("Linked List is Empty\n");
-	//return NULL;
-  }
-  else
-  {
-    while( head != NULL)
-	{
-	 printf("%d=> ",head->data);
-	 head=head->next;
-	}
-     printf("\n");
-  }
+
+
 }
 
-//fibonacci series,factorial,1 to n addition
-void ReverseLinkedList(struct node* head)
-{
-  if(head == NULL)
-  {
-    return;
-  }
-  else
-  {
-    ReverseLinkedList(head -> next);
-	printf("%d =>",head ->data);
-  }
-}
 void main()
 {
+
 	int choice;
-	struct node* first = NULL;
+	struct STACK* top=NULL;
+	int elements;
+	
 	do
 	{
-	printf("1.create Linked List\n");
-	printf("2.Display Linked List\n");
-	printf("3.reverse linked list\n");
-	printf("0.exit(0)\n");
-
-	printf("please enter your choice\n");
-	scanf_s("%d",&choice);
-
-	switch(choice)
-	{
-      case 1:createLinkedList(&first);
-		break;
-	  case 2:displayLinkedList(first);
-		  break; 
-	  case 3:ReverseLinkedList(first);
-		  break;
-	  case 0:exit(0);
-		  break;
+	  printf("1.pop\n");
+	  printf("2.push\n");
+	  printf("3.dispaly\n");
+	  printf("0.exit\n");
+	
+	 printf("Enter your choice\n");
+	 scanf_s("%d",&choice);
+	
+	 switch(choice)
+	 {
+	 case 1:push(&top,elements);
+		 break;
+	 case 2:pop();
+		 break;
+	 case 3:display();
+		 break;
+	 case 0:exit();
+		 break;
+	 
+	 
+	 }
 	}
- }while(choice != 0);
-	_getch();
 }
